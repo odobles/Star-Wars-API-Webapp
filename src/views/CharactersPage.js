@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useEffect } from "react";
-import '/MyApp/my-app/src/components/views.css'
+import '../components/views.css'
 import { Link } from "react-router-dom";
 
 export default function CharactersPage({namesList, setNamesList, charactersList, setCharactersList}){

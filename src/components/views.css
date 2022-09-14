@@ -1,7 +1,7 @@
 body{
     background-image: url(../../assets/stars.jpg);
     background-color: #cccccc;
-    height: 1200px;
+    height: 1500px;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */

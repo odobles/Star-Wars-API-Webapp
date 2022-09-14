@@ -38,13 +38,13 @@ export default function FilmsPage( {filmNamesList, setFilmNamesList, filmsList, 
 
     return(
         <>
-            <div>
+            <div className='text-light'>
                 <h1>Films</h1>
             </div>
 
             <div className="table-responsive">
             <table className="table table-striped table-bordered" style={{width: "10px"}}>
-            <thead>
+            <thead className='bg-info'>
                 <tr>
                 {/* <!-- Your Columns HERE --> */}
 
@@ -58,10 +58,10 @@ export default function FilmsPage( {filmNamesList, setFilmNamesList, filmsList, 
             </thead>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {filmNamesList.map((element,index) => {
                         return(
-                            <td key={index} style={{padding: "100px"}}> <img src={`https://starwars-visualguide.com/assets/img/films/${filmNamesList.indexOf(element)+1}.jpg`}/></td>
+                            <td key={index} style={{padding: "30px"}}> <img src={`https://starwars-visualguide.com/assets/img/films/${filmNamesList.indexOf(element)+1}.jpg`}/></td>
                         )
                     })}
   
@@ -69,16 +69,17 @@ export default function FilmsPage( {filmNamesList, setFilmNamesList, filmsList, 
             </tbody>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {filmNamesList.map((element,index) => {
                         return(
-                            <td key={index}> Lorem Ipsum <Link to={`${index+1}`}> <p><button>Learn More!</button></p> </Link> </td> 
+                            <td key={index}> <Link to={`${index+1}`}> <p><button className='btn btn-primary'>Learn More!</button></p> </Link> </td> 
                         )
                     })}
                 </tr>
             </tbody>
             </table>
             </div>
+            <Link to={'/'} className="btn btn-secondary m-4"><h4>Back</h4></Link>
         </>
     )
 }

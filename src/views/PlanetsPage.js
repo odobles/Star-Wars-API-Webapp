@@ -34,14 +34,14 @@ export default function PlanetsPage({planetNamesList, setPlanetsNamesList, plane
 
     return(
         <>
-            <div>
+            <div className='text-light'>
                 <h1>Planets</h1>
             </div>
 
             <div className="table-responsive">
             <table className="table table-striped table-bordered" style={{width: "10px"}}>
             <thead>
-                <tr>
+                <tr className='bg-info'>
                 {/* <!-- Your Columns HERE --> */}
 
                 {planetNamesList.map((element, index) => {
@@ -52,13 +52,13 @@ export default function PlanetsPage({planetNamesList, setPlanetsNamesList, plane
                 
                 </tr>
             </thead>
-            <tbody>
+            <tbody className='bg-dark'>
             {/* <!-- Your rows inside the table HERE: --> */}
                 <tr>
                     {planetNamesList.map((element,index) => {
                        
                         return(
-                            <td key={index} style={{padding: "100px"}}> <img width="400" height="400" src={`https://starwars-visualguide.com/assets/img/planets/${uid[index]}.jpg`}/></td>
+                            <td key={index} style={{padding: "30px"}}> <img width="400" height="400" src={`https://starwars-visualguide.com/assets/img/planets/${uid[index]}.jpg`}/></td>
                         )
                         
 
@@ -66,18 +66,19 @@ export default function PlanetsPage({planetNamesList, setPlanetsNamesList, plane
   
                 </tr>
             </tbody>
-            <tbody>
+            <tbody className='bg-dark'>
             {/* <!-- Your rows inside the table HERE: --> */}
                 <tr>
                     {planetNamesList.map((element,index) => {
                         return(
-                            <td key={index}> Lorem Ipsum <Link to={`${uid[index]}`}> <p><button>Learn More!</button></p> </Link> </td> 
+                            <td key={index}> <Link to={`${uid[index]}`}> <p><button className='btn btn-primary'>Learn More!</button></p> </Link> </td> 
                         )
                     })}
                 </tr>
             </tbody>
             </table>
             </div>
+            <Link to={'/'} className="btn btn-secondary m-4"><h4>Back</h4></Link>
         </>
     )
 }

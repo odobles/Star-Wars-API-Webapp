@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useEffect } from "react";
+import '/MyApp/my-app/src/components/views.css'
 import { Link } from "react-router-dom";
 
 export default function CharactersPage({namesList, setNamesList, charactersList, setCharactersList}){
@@ -31,13 +32,13 @@ export default function CharactersPage({namesList, setNamesList, charactersList,
 
     return(
         <>
-            <div>
+            <div className='text-light'>
                 <h1>Characters</h1>
             </div>
 
             <div className="table-responsive">
             <table className="table table-striped table-bordered" style={{width: "10px"}}>
-            <thead>
+            <thead className='bg-info'>
                 <tr>
                 {/* <!-- Your Columns HERE --> */}
 
@@ -51,10 +52,10 @@ export default function CharactersPage({namesList, setNamesList, charactersList,
             </thead>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {namesList.map((element,index) => {
                         return(
-                            <td key={index} style={{padding: "100px"}}> <img src={`https://starwars-visualguide.com/assets/img/characters/${namesList.indexOf(element)+1}.jpg`}/></td>
+                            <td key={index} style={{padding: "30px"}}> <img src={`https://starwars-visualguide.com/assets/img/characters/${namesList.indexOf(element)+1}.jpg`}/></td>
                         )
                     })}
   
@@ -62,16 +63,17 @@ export default function CharactersPage({namesList, setNamesList, charactersList,
             </tbody>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {namesList.map((element,index) => {
                         return(
-                             <td key={index}> Lorem Ipsum <Link to={`${index+1}`}> <p><button>Learn More!</button></p> </Link> </td> 
+                             <td key={index}> <Link to={`${index+1}`}> <p><button className='btn btn-primary'>Learn More!</button></p> </Link> </td> 
                         )
                     })}
                 </tr>
             </tbody>
             </table>
             </div>
+            <Link to={'/'} className="btn btn-secondary m-4"><h4>Back</h4></Link>
         </>
     )
 }

@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom"
 
-export default function StarshipsPage({starshipsNamesList, setStarshipsNamesList, starshipsList, setStarshipsList, uid, setUid}){
+export default function StarshipsPage({starshipsNamesList, setStarshipsNamesList, starshipsList, setStarshipsList, starshipsUid, setStarshipsUid}){
 
         useEffect(() => {
             const starshipsUrl = "https://www.swapi.tech/api/starships/"
@@ -24,23 +24,24 @@ export default function StarshipsPage({starshipsNamesList, setStarshipsNamesList
 
             if (starshipsList.length !== 0 &&  starshipsNamesList.length === 0){
                 starshipsList.forEach(starship => setStarshipsNamesList(oldList =>  [...oldList, starship.name]))
-                starshipsList.forEach(planet => setUid(oldList =>  [...oldList, planet.uid]))
+                starshipsList.forEach(starship => setStarshipsUid(oldList =>  [...oldList, starship.uid]))
             } 
             console.log(starshipsNamesList)
-            console.log(uid)
+            console.log(starshipsUid)
+            
 
     }, [starshipsList])
 
     return(
         <>
-            <div>
+            <div className='text-light'>
                 <h1>Starships</h1>
             </div>
 
             <div className="table-responsive">
             <table className="table table-striped table-bordered" style={{width: "10px"}}>
             <thead>
-                <tr>
+                <tr className='bg-info'>
                 {/* <!-- Your Columns HERE --> */}
 
                 {starshipsNamesList.map((element, index) => {
@@ -53,10 +54,10 @@ export default function StarshipsPage({starshipsNamesList, setStarshipsNamesList
             </thead>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {starshipsNamesList.map((element,index) => {
                         return(
-                            <td key={index} style={{padding: "100px"}}> <img src='https://starwars-visualguide.com/assets/img/placeholder.jpg'/></td>
+                            <td key={index} style={{padding: "30px"}}> <img src='https://starwars-visualguide.com/assets/img/placeholder.jpg'/></td>
                         )
                     })}
   
@@ -64,16 +65,17 @@ export default function StarshipsPage({starshipsNamesList, setStarshipsNamesList
             </tbody>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {starshipsNamesList.map((element,index) => {
                         return(
-                            <td key={index}> Lorem Ipsum <Link to={`${uid[index]}`}> <p><button>Learn More!</button></p> </Link> </td> 
+                            <td key={index}> <Link to={`${starshipsUid[index]}`}> <p><button className='btn btn-primary'>Learn More!</button></p> </Link> </td> 
                         )
                     })}
                 </tr>
             </tbody>
             </table>
             </div>
+            <Link to={'/'} className="btn btn-secondary m-4"><h4>Back</h4></Link>
         </>
     )
 }

@@ -21,7 +21,10 @@ import NotFoundPage from './views/NotFoundPage'
 
 function App() {
 
-  const [uid, setUid] = useState([])
+  const [starshipsUid, setStarshipsUid] = useState([])
+  const [vehiclesUid, setVehiclesUid] = useState([])
+
+  const [uid, setUid] = useState([]) //PLANETS UID
 
   const [charactersList, setCharactersList] = useState([])
   const [namesList, setNamesList] = useState([])
@@ -54,9 +57,9 @@ function App() {
           <Route path="/people" element={<CharactersPage namesList={namesList} setNamesList={setNamesList} charactersList ={charactersList} setCharactersList={setCharactersList} />} />
           <Route path="/films" element={<FilmsPage filmNamesList={filmNamesList} setFilmNamesList={setFilmNamesList} filmsList={filmsList} setFilmsList={setFilmsList} />} />
           <Route path="/planets" element={<PlanetsPage planetNamesList={planetNamesList} setPlanetsNamesList={setPlanetsNamesList} planetsList={planetsList} setPlanetsList={setPlanetsList} uid={uid} setUid={setUid} />} />
-          <Route path="/starships" element={<StarshipsPage starshipsNamesList={starshipsNamesList} setStarshipsNamesList={setStarshipsNamesList} starshipsList={starshipsList} setStarshipsList={setStarshipsList} uid={uid} setUid={setUid} />} />
+          <Route path="/starships" element={<StarshipsPage starshipsNamesList={starshipsNamesList} setStarshipsNamesList={setStarshipsNamesList} starshipsList={starshipsList} setStarshipsList={setStarshipsList} starshipsUid={starshipsUid} setStarshipsUid={setStarshipsUid} />} />
           <Route path="/species" element={<SpeciesPage speciesNamesList={speciesNamesList} setSpeciesNamesList={setSpeciesNamesList} speciesList={speciesList} setSpeciesList={setSpeciesList} />} />
-          <Route path="/vehicles" element={<VehiclesPage vehiclesNamesList={vehiclesNamesList} setVehiclesNamesList={setVehiclesNamesList} vehiclesList={vehiclesList} setVehiclesList={setVehiclesList} uid={uid} setUid={setUid} />} />
+          <Route path="/vehicles" element={<VehiclesPage vehiclesNamesList={vehiclesNamesList} setVehiclesNamesList={setVehiclesNamesList} vehiclesList={vehiclesList} setVehiclesList={setVehiclesList} vehiclesUid={vehiclesUid} setVehiclesUid={setVehiclesUid} />} />
           
           <Route path="/characters" element={<Navigate replace to="/people"/>} /> {/*User redirect. Replace does not allow to go back to usuarios*/}
 

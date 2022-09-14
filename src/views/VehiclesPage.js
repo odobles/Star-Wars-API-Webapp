@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom"
 
-export default function VehiclesPage({vehiclesNamesList, setVehiclesNamesList, vehiclesList, setVehiclesList, uid, setUid}){
+export default function VehiclesPage({vehiclesNamesList, setVehiclesNamesList, vehiclesList, setVehiclesList, vehiclesUid, setVehiclesUid}){
 
         useEffect(() => {
             const vehiclessUrl = "https://www.swapi.tech/api/vehicles/"
@@ -24,23 +24,23 @@ export default function VehiclesPage({vehiclesNamesList, setVehiclesNamesList, v
 
             if (vehiclesList.length !== 0 &&  vehiclesNamesList.length === 0){
                 vehiclesList.forEach(vehicles => setVehiclesNamesList(oldList =>  [...oldList, vehicles.name]))
-                vehiclesList.forEach(vehicles => setUid(oldList =>  [...oldList, vehicles.uid]))
+                vehiclesList.forEach(vehicles => setVehiclesUid(oldList =>  [...oldList, vehicles.uid]))
             } 
             console.log(vehiclesNamesList)
-            console.log(uid)
+            console.log(vehiclesUid)
 
     }, [vehiclesList])
 
     return(
         <>
-            <div>
+            <div className='text-light'>
                 <h1>Vehicles</h1>
             </div>
 
             <div className="table-responsive">
             <table className="table table-striped table-bordered" style={{width: "10px"}}>
             <thead>
-                <tr>
+                <tr className='bg-info'>
                 {/* <!-- Your Columns HERE --> */}
 
                 {vehiclesNamesList.map((element, index) => {
@@ -53,10 +53,10 @@ export default function VehiclesPage({vehiclesNamesList, setVehiclesNamesList, v
             </thead>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {vehiclesNamesList.map((element,index) => {
                         return(
-                            <td key={index} style={{padding: "100px"}}> <img src={`https://starwars-visualguide.com/assets/img/vehicles/${uid[index]}.jpg`}/></td>
+                            <td key={index} style={{padding: "30px"}}> <img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehiclesUid[index]}.jpg`}/></td>
                         )
                     })}
   
@@ -64,16 +64,17 @@ export default function VehiclesPage({vehiclesNamesList, setVehiclesNamesList, v
             </tbody>
             <tbody>
             {/* <!-- Your rows inside the table HERE: --> */}
-                <tr>
+                <tr className='bg-dark'>
                     {vehiclesNamesList.map((element, index) => {
                         return(
-                            <td key={index}> Lorem Ipsum <Link to={`${uid[index]}`}> <p><button>Learn More!</button></p> </Link> </td> 
+                            <td key={index}> <Link to={`${vehiclesUid[index]}`}> <p><button className='btn btn-primary'>Learn More!</button></p> </Link> </td> 
                         )
                     })}
                 </tr>
             </tbody>
             </table>
             </div>
+            <Link to={'/'} className="btn btn-secondary m-4"><h4>Back</h4></Link>
         </>
     )
 }
